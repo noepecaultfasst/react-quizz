@@ -1,7 +1,7 @@
-import TriviaCategory from "./TriviaCategory";
+import Category from "./Category";
 
 interface CategoriesResponse {
- trivia_categories: TriviaCategory[]
+ trivia_categories: Category[]
 }
 
 export default CategoriesResponse;

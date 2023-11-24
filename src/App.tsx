@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import OptionSelector from "./components/OptionSelector";
-import TriviaCategory from "./model/TriviaCategory";
+import Category from "./model/Category";
 import CategoriesResponse from "./model/CategoriesResponse";
 import Difficulty from "./model/Difficulty";
 import Question from "./model/Question";
@@ -14,7 +14,7 @@ const difficulties: Difficulty[] = [
 ]
 
 function App() {
-    let [categories, setCategories] = useState<TriviaCategory[]>([]);
+    let [categories, setCategories] = useState<Category[]>([]);
     let [selectedCategoryId, setSelectedCategoryId] = useState<number>();
     let [selectedDifficultyId, setSelectedDifficultyId] = useState<string>();
 
@@ -30,7 +30,7 @@ function App() {
             .then(cat => setCategories(cat));
     }, []);
 
-    const createQuiz = async (category: TriviaCategory, difficulty: Difficulty, amount = 5) => {
+    const createQuiz = async (category: Category, difficulty: Difficulty, amount = 5) => {
         fetch(`https://opentdb.com/api.php?amount=${amount}&category=${category.id}&difficulty=${difficulty.id}&type=multiple`)
             .then(response => response.json() as Promise<QuestionsResponse>)
             .then(response => response.results)
