@@ -5,7 +5,7 @@ import CategoriesResponse from "./model/CategoriesResponse";
 import Difficulty from "./model/Difficulty";
 import Question from "./model/Question";
 import QuizCreator from "./components/QuizCreator";
-import QuestionRow from "./components/question/QuestionRow";
+import QuizGame from "./components/QuizGame";
 
 const difficulties: Difficulty[] = [
     {id: "easy", name: "Easy"},
@@ -28,7 +28,7 @@ function App() {
         <div className="App">
             <QuizCreator categories={categories} difficulties={difficulties} onQuestionsReceived={setQuestions}/>
             <div>
-                {questions && questions.map(q => <QuestionRow key={q.question} question={q} onAnswerSelected={(_) => {}}/>)}
+                {questions && <QuizGame questions={questions} onSubmit={(answers => console.log(answers))}/>}
             </div>
         </div>
     );
