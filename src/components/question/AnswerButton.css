@@ -1,0 +1,11 @@
+.correct {
+    background: #17c717;
+}
+
+.incorrect {
+    background: red;
+}
+
+.default {
+    border-color: green;
+}

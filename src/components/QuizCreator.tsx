@@ -12,11 +12,11 @@ interface QuizCreatorProps {
 }
 
 const QuizCreator = ({categories, difficulties, onQuestionsReceived}: QuizCreatorProps) => {
-    let [selectedCategoryId, setSelectedCategoryId] = useState<number>();
-    let [selectedDifficultyId, setSelectedDifficultyId] = useState<string>();
+    const [selectedCategoryId, setSelectedCategoryId] = useState<number>();
+    const [selectedDifficultyId, setSelectedDifficultyId] = useState<string>();
 
-    let selectedCategory = selectedCategoryId ? categories.find(c => c.id === selectedCategoryId) : undefined;
-    let selectedDifficulty = selectedDifficultyId ? difficulties.find(d => d.id === selectedDifficultyId) : undefined;
+    const selectedCategory = selectedCategoryId ? categories.find(c => c.id === selectedCategoryId) : undefined;
+    const selectedDifficulty = selectedDifficultyId ? difficulties.find(d => d.id === selectedDifficultyId) : undefined;
 
     const fetchQuestions = async (category: Category, difficulty: Difficulty, amount = 5) => {
         fetch(`https://opentdb.com/api.php?amount=${amount}&category=${category.id}&difficulty=${difficulty.id}&type=multiple`)
