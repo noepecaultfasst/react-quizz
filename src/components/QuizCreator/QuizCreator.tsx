@@ -39,6 +39,7 @@ const QuizCreator = ({categories, difficulties, onQuestionsReceived}: QuizCreato
                         id="difficultySelect"
                         onOptionSelected={(o) => setSelectedDifficultyId(o as string)}/>
         <button id="createBtn"
+                disabled={selectedCategory === undefined || selectedDifficulty === undefined}
                 onClick={() => selectedCategory && selectedDifficulty && fetchQuestions(selectedCategory, selectedDifficulty)}>Create
         </button>
     </div>;
