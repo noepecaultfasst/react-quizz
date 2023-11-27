@@ -52,26 +52,29 @@ const QuizGame = () => {
         ([...selectedAnswers.entries()]
             .filter(([, answer]) => answer !== undefined).length === questions.length);
 
-    return <div className="game">
-        <QuizCreator categories={categories} difficulties={difficulties} onQuestionsReceived={questions => {
-            setQuestions(questions);
-            dispatchAnswers({questions: questions})
-        }}/>
-        <div>
-            {questions && <div>
-                {questions.map(q =>
-                    <QuestionRow key={q.question} question={q}
-                                 selectedAnswer={selectedAnswers.get(q)}
-                                 onAnswerSelected={(question, answer) => dispatchAnswers({
-                                     question: question,
-                                     answer: answer
-                                 })}/>)
-                }
+    return (
+        <div className="game">
+            <QuizCreator categories={categories} difficulties={difficulties} onQuestionsReceived={questions => {
+                setQuestions(questions);
+                dispatchAnswers({questions: questions})
+            }}/>
+            <div>
+                {questions && <div>
+                    {questions.map(q =>
+                        <QuestionRow key={q.question} question={q}
+                                     selectedAnswer={selectedAnswers.get(q)}
+                                     onAnswerSelected={(question, answer) => dispatchAnswers({
+                                         question: question,
+                                         answer: answer
+                                     })}/>)
+                    }
 
-                {allAnswered && <button id="submitBtn" onClick={() => navigate("/results", {state: selectedAnswers})}>Submit</button>}
-            </div>}
+                    {allAnswered && <button id="submitBtn"
+                                            onClick={() => navigate("/results", {state: selectedAnswers})}>Submit</button>}
+                </div>}
+            </div>
         </div>
-    </div>
+    );
 };
 
 export default QuizGame;

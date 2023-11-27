@@ -22,7 +22,7 @@ const QuizResults = () => {
 
     return (
         <>
-            <h3>Results</h3>
+            <h3 id="resultsSubtitle">Results</h3>
             {
                 questions.map(q => <QuestionRow reveal={true} key={q.question} question={q}
                                                 selectedAnswer={answers.get(q)}/>)
