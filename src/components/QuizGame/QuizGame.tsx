@@ -68,7 +68,7 @@ const QuizGame = () => {
                                  })}/>)
                 }
 
-                {allAnswered && <button onClick={() => navigate("/results", {state: selectedAnswers})}>Submit</button>}
+                {allAnswered && <button id="submitBtn" onClick={() => navigate("/results", {state: selectedAnswers})}>Submit</button>}
             </div>}
         </div>
     </div>
