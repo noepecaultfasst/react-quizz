@@ -1,0 +1,14 @@
+.answer-button.correct {
+    color: white;
+    background: #198754;
+}
+
+.answer-button.incorrect {
+    color: white;
+    background: red;
+}
+
+.answer-button {
+    color: #198754;
+    border-color: #24983d;
+}

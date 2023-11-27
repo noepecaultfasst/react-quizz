@@ -1,0 +1,27 @@
+.low-score {
+    background: red;
+    color: white;
+}
+
+.medium-score {
+    background: yellow;
+    color: black;
+}
+
+.high-score {
+    background: green;
+    color: white;
+}
+
+.score-box {
+    padding: 1rem;
+    font-size: large;
+    border-radius: 4px;
+    max-width: max-content;
+}
+
+#newGameBtn {
+    background-color: #6c757d;
+    border-radius: 4px;
+    color: white;
+}

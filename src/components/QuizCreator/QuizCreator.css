@@ -1,0 +1,22 @@
+.quiz-creator {
+    display: flex;
+    gap: 0;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#categorySelect {
+    border-right-style: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#difficultySelect {
+    border-radius: 0;
+}
+
+#createBtn {
+    border-left-style: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}

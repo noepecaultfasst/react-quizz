@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import QuizGame from "./components/QuizGame";
-import QuizResults from "./components/QuizResults";
+import QuizGame from "./components/QuizGame/QuizGame";
+import QuizResults from "./components/QuizResults/QuizResults";
 
 
 const router = createBrowserRouter([
@@ -18,7 +18,14 @@ const router = createBrowserRouter([
 
 function App() {
     return (
-        <RouterProvider router={router}/>
+        <div className="center">
+            <div className="App">
+                <h1>Quiz Maker</h1>
+                <hr></hr>
+                <RouterProvider router={router}/>
+            </div>
+        </div>
+
     );
 }
 

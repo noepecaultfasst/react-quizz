@@ -7,7 +7,7 @@ interface AnswerButtonProps {
 }
 
 const AnswerButton = ({answer, state, onClick}: AnswerButtonProps) => {
-    return <button className={state} onClick={onClick} dangerouslySetInnerHTML={{__html: answer}}></button>
+    return <button className={`answer-button ${state}`} onClick={onClick} dangerouslySetInnerHTML={{__html: answer}}></button>
 };
 
 export default AnswerButton;

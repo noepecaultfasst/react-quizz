@@ -1,6 +1,8 @@
 import Question from "../../model/Question";
 import AnswerButton from "./AnswerButton";
 
+import './QuestionRow.css';
+
 interface QuestionProps {
     question: Question
     selectedAnswer?: string
@@ -27,9 +29,9 @@ const QuestionRow = ({selectedAnswer, question, onAnswerSelected, reveal = false
     });
 
     return (
-        <div>
+        <div className="question-row">
             <h2 dangerouslySetInnerHTML={{__html: question.question}}/>
-            <div>
+            <div className="answers-row">
                 {
                     question.answers.map(answer =>
                         <AnswerButton key={answer} answer={answer} onClick={() => {

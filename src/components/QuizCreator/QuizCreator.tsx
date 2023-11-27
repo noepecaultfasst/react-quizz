@@ -1,9 +1,11 @@
-import OptionSelector from "./OptionSelector";
+import OptionSelector from "../OptionSelector/OptionSelector";
 import React, {useState} from "react";
-import Category from "../model/Category";
-import Difficulty from "../model/Difficulty";
-import Question from "../model/Question";
-import QuestionsResponse from "../model/QuestionsReponse";
+import Category from "../../model/Category";
+import Difficulty from "../../model/Difficulty";
+import Question from "../../model/Question";
+import QuestionsResponse from "../../model/QuestionsReponse";
+
+import './QuizCreator.css';
 
 interface QuizCreatorProps {
     categories: Category[]
@@ -27,7 +29,7 @@ const QuizCreator = ({categories, difficulties, onQuestionsReceived}: QuizCreato
         ;
     };
 
-    return <div>
+    return <div className="quiz-creator">
         <OptionSelector options={categories} value={selectedCategory}
                         id="categorySelect"
                         onOptionSelected={(o) => setSelectedCategoryId(o as number)}

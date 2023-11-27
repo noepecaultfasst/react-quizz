@@ -1,0 +1,13 @@
+.question-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.question-row .answers-row {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-around;
+}

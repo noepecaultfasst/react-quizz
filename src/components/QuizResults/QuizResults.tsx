@@ -1,7 +1,8 @@
-import QuestionRow from "./question/QuestionRow";
+import QuestionRow from "../QuestionRow/QuestionRow";
 import React from "react";
-import Question from "../model/Question";
+import Question from "../../model/Question";
 import {Link, useLocation} from "react-router-dom";
+
 import './QuizResults.css';
 
 const QuizResults = () => {
@@ -21,15 +22,15 @@ const QuizResults = () => {
 
     return (
         <>
-            <h1>Results</h1>
+            <h2>Results</h2>
             {
                 questions.map(q => <QuestionRow reveal={true} key={q.question} question={q}
                                                 selectedAnswer={answers.get(q)}/>)
             }
 
-            <p className={scoreStyle}>You scored {score} out of {questions.length}</p>
+            <p className={`${scoreStyle} score-box`}>You scored {score} out of {questions.length}</p>
             <Link to="/">
-                <button>Create a new game</button>
+                <button id="newGameBtn">Create a new quiz</button>
             </Link>
         </>);
 };
