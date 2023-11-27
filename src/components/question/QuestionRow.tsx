@@ -1,19 +1,14 @@
 import Question from "../../model/Question";
-import {useMemo} from "react";
 import AnswerButton from "./AnswerButton";
 
 interface QuestionProps {
     question: Question
-    selectedAnswer: string | undefined
+    selectedAnswer?: string
     onAnswerSelected?: (question: Question, answer: string) => void
     reveal?: boolean
 }
 
 const QuestionRow = ({selectedAnswer, question, onAnswerSelected, reveal = false}: QuestionProps) => {
-    const answers: string[] = useMemo(() =>
-            [question.correct_answer, ...question.incorrect_answers].sort(() => 0.5 - Math.random()),
-        [question]);
-
     const getState = ((answer: string) => {
         const selected = answer === selectedAnswer;
         if (reveal) {
@@ -36,7 +31,7 @@ const QuestionRow = ({selectedAnswer, question, onAnswerSelected, reveal = false
             <h2 dangerouslySetInnerHTML={{__html: question.question}}/>
             <div>
                 {
-                    answers.map(answer =>
+                    question.answers.map(answer =>
                         <AnswerButton key={answer} answer={answer} onClick={() => {
                             onAnswerSelected && onAnswerSelected(question, answer)
                         }} state={getState(answer)}/>

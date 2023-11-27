@@ -22,7 +22,9 @@ const QuizCreator = ({categories, difficulties, onQuestionsReceived}: QuizCreato
         fetch(`https://opentdb.com/api.php?amount=${amount}&category=${category.id}&difficulty=${difficulty.id}&type=multiple`)
             .then(response => response.json() as Promise<QuestionsResponse>)
             .then(response => response.results)
-            .then(onQuestionsReceived);
+            .then(questions => questions.map((q) => ({...q, answers: [q.correct_answer, ...q.incorrect_answers].sort(() => 0.5 - Math.random())})))
+            .then(onQuestionsReceived)
+        ;
     };
 
     return <div>
